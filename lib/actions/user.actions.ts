@@ -4,9 +4,10 @@ import { revalidatePath } from "next/cache";
 import  User  from "@/lib/database/models/user.model";
 import { connectToDatabase } from "../database/mongoose";
 import { handleError } from "../utils";
+import mongoose from "mongoose";
 
 // CREATE
-export async function createUser(user: CreateUserParams) {
+export async function createUser(user: { clerkId: string; email: string; username: string; firstName: string | null; lastName: string | null; photo: string; }, createUser: (user: CreateUserParams) => Promise<any>, user: CreateUserParams) {
   try {
     await connectToDatabase();
 
