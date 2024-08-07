@@ -1,6 +1,9 @@
 import { type ClassValue, clsx } from "clsx"
 import { twMerge } from "tailwind-merge"
 import { aspectRatioOptions } from "@/constants";
+import qs from "qs";
+
+
 
 
 //error handling
@@ -122,3 +125,36 @@ export const deepMergeObjects = (obj1: any, obj2: any) => {
 
   return output;
 };
+
+
+//form url query
+export const formUrlQuery = ({
+  searchParams,
+  key,
+  value,
+}: FormUrlQueryParams) => {
+  const params = { ...qs.parse(searchParams.toString()), [key]: value };
+
+  return `${window.location.pathname}?${qs.stringify(params, {
+    skipNulls: true,
+  })}`;
+};
+
+// REMOVE KEY FROM QUERY
+export function removeKeysFromQuery({
+  searchParams,
+  keysToRemove,
+}: RemoveUrlQueryParams) {
+  const currentUrl = qs.parse(searchParams);
+
+  keysToRemove.forEach((key) => {
+    delete currentUrl[key];
+  });
+
+  // Remove null or undefined values
+  Object.keys(currentUrl).forEach(
+    (key) => currentUrl[key] == null && delete currentUrl[key]
+  );
+
+  return `${window.location.pathname}?${qs.stringify(currentUrl)}`;
+}

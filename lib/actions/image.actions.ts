@@ -8,6 +8,7 @@ import Image from "../database/models/image.model";
 import { redirect } from "next/navigation";
 
 import { v2 as cloudinary } from 'cloudinary'
+import { NextResponse } from "next/server";
 
 const populateUser = (query: any) => query.populate({
   path: 'author',
@@ -34,8 +35,8 @@ export async function addImage({ image, userId, path }: AddImageParams) {
     revalidatePath(path);
 
     return JSON.parse(JSON.stringify(newImage));
-  } catch (error) {
-    handleError(error)
+  } catch (error: any) {
+    NextResponse.json({ error: error.message });
   }
 }
 
@@ -59,8 +60,8 @@ export async function updateImage({ image, userId, path }: UpdateImageParams) {
     revalidatePath(path);
 
     return JSON.parse(JSON.stringify(updatedImage));
-  } catch (error) {
-    handleError(error)
+  } catch (error: any) {
+    NextResponse.json({ error: error.message });
   }
 }
 
@@ -87,8 +88,8 @@ export async function getImageById(imageId: string) {
     if(!image) throw new Error("Image not found");
 
     return JSON.parse(JSON.stringify(image));
-  } catch (error) {
-    handleError(error)
+  } catch (error: any) {
+    NextResponse.json({ error: error.message });
   }
 }
 
@@ -145,8 +146,8 @@ export async function getAllImages({ limit = 9, page = 1, searchQuery = '' }: {
       totalPage: Math.ceil(totalImages / limit),
       savedImages,
     }
-  } catch (error) {
-    handleError(error)
+  } catch (error: any) {
+    NextResponse.json({ error: error.message });
   }
 }
 
@@ -176,7 +177,7 @@ export async function getUserImages({
       data: JSON.parse(JSON.stringify(images)),
       totalPages: Math.ceil(totalImages / limit),
     };
-  } catch (error) {
-    handleError(error);
+  } catch (error: any) {
+    NextResponse.json({ error: error.message });
   }
 }
