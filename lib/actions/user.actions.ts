@@ -5,17 +5,19 @@ import  User  from "@/lib/database/models/user.model";
 import { connectToDatabase } from "../database/mongoose";
 import { handleError } from "../utils";
 import mongoose from "mongoose";
+import { NextResponse } from "next/server";
 
 // CREATE
-export async function createUser(user: { clerkId: string; email: string; username: string; firstName: string | null; lastName: string | null; photo: string; }, createUser: (user: CreateUserParams) => Promise<any>, user: CreateUserParams) {
+// user: { clerkId: string; email: string; username: string; firstName: string | null; lastName: string | null; photo: string; }, createUser: (user: CreateUserParams) => Promise<any>,
+export async function createUser( user: CreateUserParams) {
   try {
     await connectToDatabase();
 
     const newUser = await User.create(user);
 
     return JSON.parse(JSON.stringify(newUser));
-  } catch (error) {
-    handleError(error);
+  } catch (error: any) {
+    NextResponse.json({ error: error.message });
   }
 }
 
@@ -29,8 +31,8 @@ export async function getUserById(userId: string) {
     if (!user) throw new Error("User not found");
 
     return JSON.parse(JSON.stringify(user));
-  } catch (error) {
-    handleError(error);
+  } catch (error: any) {
+    NextResponse.json({ error: error.message });
   }
 }
 
@@ -46,8 +48,8 @@ export async function updateUser(clerkId: string, user: UpdateUserParams) {
     if (!updatedUser) throw new Error("User update failed");
     
     return JSON.parse(JSON.stringify(updatedUser));
-  } catch (error) {
-    handleError(error);
+  }  catch (error: any) {
+    NextResponse.json({ error: error.message });
   }
 }
 
@@ -68,8 +70,8 @@ export async function deleteUser(clerkId: string) {
     revalidatePath("/");
 
     return deletedUser ? JSON.parse(JSON.stringify(deletedUser)) : null;
-  } catch (error) {
-    handleError(error);
+  } catch (error: any) {
+    NextResponse.json({ error: error.message });
   }
 }
 
@@ -87,7 +89,7 @@ export async function updateCredits(userId: string, creditFee: number) {
     if(!updatedUserCredits) throw new Error("User credits update failed");
 
     return JSON.parse(JSON.stringify(updatedUserCredits));
-  } catch (error) {
-    handleError(error);
+  } catch (error: any) {
+    NextResponse.json({ error: error.message });
   }
 }

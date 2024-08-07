@@ -1,16 +1,20 @@
-import { clerkMiddleware } from "@clerk/nextjs/server";
+import {
+  clerkMiddleware,
+  createRouteMatcher
+} from '@clerk/nextjs/server';
 
-import next from "next";
+const isProtectedRoute = createRouteMatcher(['/api/webhooks/clerk']);
 
-// export default clerkMiddleware();
 
-export default clerkMiddleware({
-  publicRoutes:['/api/webhooks/clerk']
-   
-})
+export default clerkMiddleware((auth, req) => {
+  if (isProtectedRoute(req)) auth().protect();
+});
 
 export const config = {
-  matcher: ["/((?!.*\\..*|_next).*)", "/", "/(api|trpc)(.*)"],
+  // The following matcher runs middleware on all routes
+  // except static assets.
+  matcher: [ '/((?!.*\\..*|_next).*)', '/', '/(api|trpc)(.*)'],
 };
 
 
+// ['/api/webhooks/clerk']

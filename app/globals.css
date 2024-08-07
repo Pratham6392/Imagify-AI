@@ -84,7 +84,7 @@
 }
 
 .root-container {
-  @apply mt-16 flex-1 overflow-auto py-8 lg:mt-0 lg:max-h-screen lg:py-10
+  @apply mt-16 flex-1 overflow-auto py-8 lg:mt-0 lg:max-h-screen lg:py-0
 }
 
 /* ========================================== TAILWIND STYLES */
@@ -220,7 +220,7 @@
 
   /* Home Page */
   .home {
-    @apply sm:flex-center hidden h-72 flex-col gap-4 rounded-[20px] border bg-banner bg-cover bg-no-repeat p-10 shadow-inner;
+    @apply sm:flex-center hidden h-60 flex-col gap-4 rounded-[20px] border bg-banner bg-cover bg-no-repeat p-10 shadow-inner;
   }
 
   .home-heading {
@@ -312,7 +312,7 @@
 
   /* Sidebar Component */
   .sidebar {
-    @apply hidden h-screen w-72 bg-white p-5 shadow-md shadow-purple-200/50 lg:flex;
+    @apply hidden h-screen w-72 bg-black-500 p-5 shadow-md shadow-purple-200/50 lg:flex;
   }
 
   .sidebar-logo {
