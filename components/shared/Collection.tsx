@@ -25,7 +25,7 @@ export const Collection = ({
   totalPages = 1,
   page,
 }: {
-  images?: IImage[];
+  images: IImage[];
   totalPages?: number;
   page: number;
   hasSearch?: boolean;
@@ -44,7 +44,11 @@ export const Collection = ({
     });
 
     router.push(newUrl, { scroll: false });
+     
+
   };
+  console.log("images==>", images)
+  console.log("secret==>", process.env.CLOUDINARY_API_KEY);
 
   return (
     <>
@@ -52,19 +56,20 @@ export const Collection = ({
         <h2 className="h2-bold text-dark-600">Recent Edits</h2>
         {hasSearch && <Search />}
       </div>
-     
-      {images?.length ?? 0 > 0  ? (
+   
+      {images && images.length > 0 ? (
         <ul className="collection-list">
-          {images?.map((image) => (
-            //@ts-ignore
+          {images.map((image) => (
             <Card image={image} key={image._id} />
           ))}
         </ul>
       ) : (
         <div className="collection-empty">
           <p className="p-20-semibold">Empty List</p>
+         
         </div>
       )}
+      
 
       {totalPages > 1 && (
         <Pagination className="mt-10">

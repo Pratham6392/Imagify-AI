@@ -32,8 +32,7 @@ const TransformationsPage= ({params:{type}}:SearchParamProps) => {
         <TransformationForm 
           action="Add"
           userId={userId}
-          type={transformationType.type as TransformationTypeKey}    
-          creditBalance={user.creditBalance}    
+          type={transformationType.type as TransformationTypeKey} creditBalance={user.creditBalance}             
         />
       </section>
     </>

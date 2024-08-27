@@ -16,6 +16,7 @@ const populateUser = (query: any) => query.populate({
   select: '_id firstName lastName clerkId'
 })
 
+
 // ADD IMAGE
 export async function addImage({ image, userId, path }: AddImageParams) {
   try {
@@ -125,7 +126,7 @@ export async function getAllImages({ limit = 9, page = 1, searchQuery = '' }: {
 
     if(searchQuery) {
       query = {
-        publicId: {
+        publicId: { 
           $in: resourceIds
         }
       }
