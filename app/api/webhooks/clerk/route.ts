@@ -1,12 +1,11 @@
-
-import  clerkClient  from "@clerk/nextjs";
+/* eslint-disable camelcase */
+import { clerkClient } from "@clerk/nextjs/server";
 import { WebhookEvent } from "@clerk/nextjs/server";
 import { headers } from "next/headers";
 import { NextResponse } from "next/server";
 import { Webhook } from "svix";
-import  {createUser}  from "@/lib/actions/user.actions";
 
-import { deleteUser, updateUser } from "@/lib/actions/user.actions";
+import { createUser, deleteUser, updateUser } from "@/lib/actions/user.actions";
 
 export async function POST(req: Request) {
   // You can find this in the Clerk Dashboard -> Webhooks -> choose the webhook
@@ -62,21 +61,19 @@ export async function POST(req: Request) {
   if (eventType === "user.created") {
     const { id, email_addresses, image_url, first_name, last_name, username } = evt.data;
 
-    const user = { 
+    const user = {
       clerkId: id,
       email: email_addresses[0].email_address,
-      userName: username!,
-      firstName: first_name, 
-      lastName: last_name, 
+      username: username!,
+      firstName: first_name,
+      lastName: last_name,
       photo: image_url,
-       }
-    //@ts-ignore
+    };
 
     const newUser = await createUser(user);
 
     // Set public metadata
     if (newUser) {
-         //@ts-ignore
       await clerkClient.users.updateUserMetadata(id, {
         publicMetadata: {
           userId: newUser._id,
@@ -94,10 +91,10 @@ export async function POST(req: Request) {
     const user = {
       firstName: first_name,
       lastName: last_name,
-      userName: username!,
+      username: username!,
       photo: image_url,
     };
- //@ts-ignore 
+
     const updatedUser = await updateUser(id, user);
 
     return NextResponse.json({ message: "OK", user: updatedUser });
@@ -117,3 +114,15 @@ export async function POST(req: Request) {
 
   return new Response("", { status: 200 });
 }
+
+
+
+
+
+
+
+
+
+
+
+process.env.WEBHOOK_SECRET
