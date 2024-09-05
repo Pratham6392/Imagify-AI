@@ -1,4 +1,4 @@
- import { auth } from "@clerk/nextjs";
+ import { useAuth } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -10,7 +10,7 @@ import { getImageSize } from "@/lib/utils";
 import { DeleteConfirmation } from "@/components/shared/DelateConformation";
 
 const ImageDetails = async ({ params: { id } }: SearchParamProps) => {
-  const { userId } = auth();
+  const { userId } = useAuth();
 
   const image = await getImageById(id);
 
