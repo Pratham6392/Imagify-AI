@@ -17,6 +17,9 @@ export async function POST(req: Request) {
     );
   }
 
+
+
+  
   // Get the headers
   const headerPayload = headers();
   const svix_id = headerPayload.get("svix-id");
@@ -67,7 +70,7 @@ export async function POST(req: Request) {
       userName: username!,
       firstName: first_name,
       lastName: last_name,
-      photo: image_url,s
+      photo: image_url,
     };
 
     const newUser = await createUser(user);
