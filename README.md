@@ -1,34 +1,97 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+**PhotoFusion-AI**
 
-## Getting Started
+PhotoFusion-AI is a powerful, AI-enhanced Software-as-a-Service (SaaS) platform built with Next.js, TypeScript, and TailwindCSS. It offers AI-powered photo restoration and recoloring features through Cloudinary and manages credits-based premium access using Stripe. Additionally, secure authentication is implemented with Clerk to ensure seamless user onboarding and account security.
 
-First, run the development server:
 
-```bash
+
+**Features**
+✨ AI-Powered Image Tools
+
+**Image Restoration**: Enhance old or damaged images using Cloudinary’s AI.
+Recoloring: Effortlessly recolor black-and-white photos with Cloudinary.
+💳 Credits-Based Payment System
+
+**Integrated Stripe** for secure payments, allowing users to buy credits and access premium features.
+🔑 Secure Authentication & Authorization
+
+**Clerk integration** provides user authentication, ensuring secure access and management of accounts.
+⚡ Server-Side Rendering (SSR)
+
+**Built using Next.js** to enable fast SSR for improved SEO and performance.
+🎨 Modern, Responsive UI
+
+Developed a sleek, user-friendly interface with **TailwindCSS**, ensuring consistency across all devices.
+🔗 Cloudinary Integration
+
+Seamless image storage, transformation, and AI-powered manipulation via Cloudinary APIs.
+📊 Admin Dashboard
+
+Admins can track user activity, credits balance, and payments.
+
+
+
+
+
+
+
+
+
+
+**Tech Stack**
+
+
+Technology	Description
+**Next.js	Framework** for React, enabling SSR and routing
+**TypeScript**	Strongly-typed JavaScript for safer development
+**TailwindCSS**	Utility-first CSS framework for rapid UI styling
+**MongoDB**	NoSQL database for storing user and image data
+**Cloudinary**	Provides AI-powered image tools and transformations
+**Stripe**	Payment gateway for secure purchase of credits
+**Clerk	Authentication** and user management service
+
+
+
+**Installation & Setup**
+
+Follow these steps to clone and run the project locally.
+
+Prerequisites
+Node.js installed (version >= 14.x)
+MongoDB Atlas account or local MongoDB setup
+Cloudinary account with API keys
+Stripe account with API keys
+Clerk account for authentication
+
+**Clone the repository**
+
+git clone https://github.com/your-username/Imagify-AI.git
+cd Imagify-AI
+
+
+
+**Configure Environment Variables**
+
+Create a **.env.local** file in the root directory with the following:
+
+NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=your-cloudinary-cloud-name
+NEXT_PUBLIC_CLOUDINARY_API_KEY=your-cloudinary-api-key
+NEXT_PUBLIC_CLOUDINARY_API_SECRET=your-cloudinary-api-secret
+
+NEXT_PUBLIC_STRIPE_PUBLIC_KEY=your-stripe-public-key
+STRIPE_SECRET_KEY=your-stripe-secret-key
+
+MONGODB_URI=mongodb+srv://your-connection-string
+
+NEXT_PUBLIC_CLERK_FRONTEND_API=your-clerk-frontend-api
+CLERK_API_KEY=your-clerk-api-key
+
+
+
+**Run the Development Server**
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
+Visit http://localhost:3000 to view the app in the browser.
 
 
 
