@@ -29,19 +29,22 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
 
 
-Here are most of the important pages which I made:
+
+**Here are most of the important pages which I made:**
 
 **SIGN-IN PAGE**
 
 ![Screenshot 2024-10-18 232020](https://github.com/user-attachments/assets/19bb895f-c0ed-42e4-bfe4-5600c67dc685)
+
+
+
+
+
+
+
 
 
 
@@ -57,9 +60,52 @@ Here are most of the important pages which I made:
 
 
 
+
+
+
+
+
+
+
+
+
 **HOME PAGE**:
 
 ![Screenshot 2024-10-18 232020](https://github.com/user-attachments/assets/07cded0a-19af-4daa-aea1-41285602a803)
+
+
+
+
+
+
+
+
+
+
+
+
+**PROFILE PAGE:** This page will show the no of credits which is left 
+
+
+
+![Screenshot 2024-10-18 232044](https://github.com/user-attachments/assets/c9d9d351-c957-43a6-9d71-2175c45fa128)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -79,9 +125,22 @@ Here are most of the important pages which I made:
 
 
 
-**OBJECT REMOVAL:**
 
-![markuphero-kIkUUFg3tgpToJKkic5C](https://github.com/user-attachments/assets/abf5d2cb-d239-4190-9f3b-fc17c6138971)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -104,6 +163,18 @@ Here are most of the important pages which I made:
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 **OBJECT REMOVAL:**
 
 ![markuphero-gcstnFHiid7OFQKN70MD](https://github.com/user-attachments/assets/8b1db675-1990-4d51-8034-47325ca8be4a)
@@ -114,3 +185,49 @@ Here are most of the important pages which I made:
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+**BUY CREDITS:**
+
+
+
+![markuphero-t2SneRjZGUMSHXP4UMIl](https://github.com/user-attachments/assets/f74aed79-c31d-4244-b9cb-83b503c669c8)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**STRIPE PAYMENT GATEWAY:**
+
+
+
+
+![markuphero-ML6Masfwxgydb6dGXnn5](https://github.com/user-attachments/assets/bb3180ae-c9af-4702-a6e3-db8eb8c89934)
